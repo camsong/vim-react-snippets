@@ -53,23 +53,35 @@ snippet pt
 		${1}: React.PropTypes.${2:string}
 	},
 snippet rcc
-	/**
-	 * @jsx React.DOM
-	 */
+	/** @jsx React.DOM */
+  define(function(require, exports, module) {
+    var React = require('React')
+      , _ = require('lodash')
+      , CX = React.addons.classSet;
 
-	var React = require('React');
+    var ${1:ClassName} = React.createClass({
+      propTypes: {
+      },
 
-	var ${1:ClassName} = React.createClass({
+      getDefaultProps: function() {
+        return {
+        };
+      },
 
-		render: function() {
-			return (
-				${0:<div />}
-			);
-		}
+      getInitialState: function() {
+        return {
+        };
+      },
 
-	});
+      render: function() {
+        return (
+          ${0:<div />}
+        );
+      }
+    });
 
-	module.exports = $1;
+    module.exports = $1;
+  });
 snippet ren
 	render: function() {
 		return (
